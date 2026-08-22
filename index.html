@@ -1,0 +1,29 @@
+<!doctype html><html lang="id"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/><title>RIKI DIGITAL LIFE</title><link rel="stylesheet" href="style.css"/></head><body>
+<div id="app" class="app dawn">
+  <header class="topbar">
+    <div class="brand"><i></i><div><b>RIKI</b><span>DIGITAL LIFE <em>V1.0</em></span></div></div>
+    <div class="world-status"><span class="weather-icon" id="weatherIcon">☀</span><div><strong id="clock">06:00</strong><small id="date">DAY 01 · MONDAY</small></div><span class="phase" id="phase">DAWN</span></div>
+    <div class="head-actions"><button class="icon-btn" id="soundBtn" aria-label="Audio">♪</button><button class="profile" id="profileBtn"><span>R</span><b id="profileName">Riki</b><small>LVL <i id="profileLevel">04</i></small></button></div>
+  </header>
+  <main>
+    <section class="world-shell">
+      <div class="world-top"><div class="location"><span class="pulse"></span><div><small>CURRENT LOCATION</small><b id="locationName">Town Center</b></div></div><div class="event-pill" id="eventPill">✦ CITY IS CALM</div><button class="mini-map" id="mapBtn">⌖ MAP</button></div>
+      <div id="world" class="world" tabindex="0" aria-label="Dunia Riki Digital Life">
+        <div class="sky-lines"></div><div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="rain"></div>
+        <div class="district-label">NEXUS DISTRICT</div><div class="road road-a"></div><div class="road road-b"></div><div class="road road-c"></div>
+        <div id="buildings"></div><div id="npcs"></div><div id="player" class="character player-char"><div class="bubble" id="playerBubble">Riki</div><div class="avatar riki">R</div><span>RIKI</span></div>
+        <div class="streetlight l1">●</div><div class="streetlight l2">●</div><div class="streetlight l3">●</div>
+        <div class="world-hint" id="worldHint">Tap a building or NPC to interact</div>
+      </div>
+      <div class="world-bottom"><button class="round-action" id="joystick">◉<small>MOVE</small></button><button class="interact-btn" id="interactBtn"><span>✦</span> INTERACT</button><button class="round-action" id="actionBtn">⚡<small>ACTION</small></button></div>
+    </section>
+    <aside class="side-panel">
+      <section class="player-card"><div class="card-head"><div><small>RESIDENT PROFILE</small><h2>Riki <em>● ONLINE</em></h2></div><span class="level-badge">LVL <b id="levelNum">4</b></span></div><div class="xp-row"><span>XP <b id="xpText">340 / 500</b></span><div><i id="xpBar" style="width:68%"></i></div></div><div class="stat-grid"><div><span>⚡</span><label>ENERGY <b id="energyValue">78%</b></label><i><em id="energyBar" style="width:78%"></em></i></div><div><span>◒</span><label>HUNGER <b id="hungerValue">64%</b></label><i><em id="hungerBar" style="width:64%"></em></i></div><div><span>♡</span><label>MOOD <b id="moodValue">82%</b></label><i><em id="moodBar" style="width:82%"></em></i></div><div><span>✚</span><label>HEALTH <b id="healthValue">96%</b></label><i><em id="healthBar" style="width:96%"></em></i></div></div><div class="wallet"><span>◈ RIKI COIN</span><b id="money">1,240</b><small>+ 85 today</small></div></section>
+      <section class="quests-card"><div class="section-title"><h3>ACTIVE QUESTS <span id="questCount">2</span></h3><button id="questsBtn">VIEW ALL →</button></div><div id="questList"></div></section>
+      <section class="activity-card"><div class="section-title"><h3>LIVE PULSE</h3><span class="live-dot">LIVE</span></div><div id="activityFeed"></div></section>
+    </aside>
+  </main>
+  <nav class="dock"><button class="active" data-panel="world">⌂<span>WORLD</span></button><button data-panel="inventory">▣<span>INVENTORY</span><i id="invCount">3</i></button><button data-panel="social">◎<span>SOCIAL</span></button><button data-panel="skills">⌁<span>SKILLS</span></button><button data-panel="more">•••<span>MORE</span></button></nav>
+</div>
+<div id="modal" class="modal hidden"><div class="modal-card"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+<div id="toast" class="toast"></div><script type="module" src="js/app.js"></script></body></html>
