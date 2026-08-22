@@ -1,0 +1,9 @@
+import {buildings,npcSeeds} from './data.js';
+export const phase=m=>m<360?'night':m<660?'dawn':m<1020?'day':m<1200?'evening':'night';
+export function formatTime(m){return String(Math.floor(m/60)%24).padStart(2,'0')+':'+String(m%60).padStart(2,'0')}
+export function npcLocation(n,minutes,weather,event){let h=Math.floor(minutes/60);if(event==='Festival'&&h>=17&&h<=22)return 'center';if(h>=8&&h<12)return n.work;if(h===12)return 'restaurant';if(h>=13&&h<17)return n.work;if(h>=17&&h<20)return weather==='Storm'?n.home:(n.personality==='Active'?'park':'center');return n.home}
+export function buildingOpen(b,m){const h=Math.floor(m/60);return b.hours[0]===0|| (h>=b.hours[0]&&h<b.hours[1])}
+export function currentEvent(s){let h=Math.floor(s.world.minutes/60);if(s.world.weather==='Rain')return {name:'RAIN PROTOCOL',desc:'Hujan membuat warga lebih memilih tempat teduh.'};if(s.world.event==='Festival')return {name:'LUMA FESTIVAL',desc:'Warga berkumpul di Town Center. Diskon market aktif!'};if(h>=19&&h<=22)return {name:'NIGHT MARKET',desc:'Byte Bistro menyajikan menu malam.'};return {name:'CITY IS CALM',desc:'Nexus District berjalan harmonis.'}}
+export function tick(s){s.world.minutes+=10;if(s.world.minutes>=1440){s.world.minutes=0;s.world.day++;s.player.energy=Math.min(100,s.player.energy+7);s.player.hunger=Math.max(20,s.player.hunger-4)};let h=Math.floor(s.world.minutes/60);if(s.world.minutes%120===0){s.player.energy=Math.max(18,s.player.energy-1);s.player.hunger=Math.max(12,s.player.hunger-1)}if(s.world.minutes%360===0&&Math.random()<.24){s.world.weather=['Sunny','Cloudy','Rain','Fog'][Math.floor(Math.random()*4)]}if(h===17&&Math.random()<.12)s.world.event='Festival';if(h===1)s.world.event=null;return s}
+export function locationName(id){return buildings.find(x=>x.id===id)?.name||'Town Center'}
+export {buildings,npcSeeds};
