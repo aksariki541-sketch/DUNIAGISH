@@ -1,0 +1,4 @@
+const key='riki-digital-life-v1';
+export const initial={user:{name:'Riki'},player:{level:4,xp:340,money:1240,energy:78,hunger:64,mood:82,health:96,location:'center',inventory:{sandwich:2,tea:1},skills:{Work:13,Cooking:7,Programming:18,Knowledge:11,Fitness:5,Social:14,Creativity:9},achievements:['First Arrival']},world:{minutes:390,day:1,weather:'Sunny',event:null},quests:[{id:'q1',title:'Morning Routine',desc:'Kunjungi Nova Market untuk persediaan.',objective:'Visit Market',progress:0,target:1,reward:80,xp:45,status:'Active'},{id:'q2',title:'Say Hello',desc:'Berbincang dengan Naya di kota.',objective:'Talk to Naya',progress:0,target:1,reward:50,xp:35,status:'Active'}],relationships:{naya:5,bima:0,keiko:0,arya:0,reno:0},feed:[]};
+export function load(){try{return {...initial,...JSON.parse(localStorage.getItem(key)||'{}')}}catch{return structuredClone(initial)}}
+export function save(s){localStorage.setItem(key,JSON.stringify(s))}
